@@ -1,0 +1,6 @@
+-------------------------------
+[17:2:23]START:Loaded logWriter
+[17:2:23]START:Defining Constants
+[17:2:23]LOAD:Loading config
+-------------------------------
+[17:3:9]START:Loaded logWriter
