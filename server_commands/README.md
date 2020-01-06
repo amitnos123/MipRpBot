@@ -1,0 +1,1 @@
+Commands that can be used in the server\guild
