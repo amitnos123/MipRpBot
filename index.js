@@ -1,4 +1,9 @@
-const { logMessage, logSplit } = require('./logWriter.js');
+const log_writer = require('log_writer');
+const path = require('path');
+
+const lw = new log_writer(path.join(__dirname, 'log'));
+lw.logSplit();
+/*const { logMessage, logSplit } = require('./logWriter.js');
 
 logMessage('load', 'Loading config');
 const { prefix, token } = require('./config.json');
@@ -39,4 +44,4 @@ client.on('message', message => {
   catch (err) {
     logMessage('error', err);
   }
-});
+});*/
