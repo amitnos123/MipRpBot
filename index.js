@@ -5,14 +5,19 @@ const lw = new log_writer(path.join(__dirname, 'log'));
 //lw.logSplit();
 
 const Discord = require('discord.js');
-logMessage('load', 'Loaded discord.js');
+lw.logMessage('load', 'Loaded discord.js');
 
-logMessage('start', 'Creating client');
+lw.logMessage('start', 'Creating client');
 const client = new Discord.Client();
 
+const { prefix, token } = require('./config.json');
+
+client.login(token);
+
 client.on('ready', function() {
-  logSplit();
-  logMessage('start', 'Bot is ready');
+  lw.logSplit();
+  lw.logMessage('start', 'Bot is ready');
+  lw.logMessage('start', path.join(__dirname, 'data'));
 });
 /*
 
