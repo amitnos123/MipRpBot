@@ -7,4 +7,4 @@ config.json
 # Allow
 !node_modules/log_writer
 !node_modules/authorization_command
-!node_modules/constants
+!node_modules/consts
