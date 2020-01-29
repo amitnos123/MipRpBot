@@ -2,6 +2,7 @@
 node_modules/*
 log/*
 shortcuts_to_modules
+config.json
 
 # Allow
 !node_modules/log_writer
