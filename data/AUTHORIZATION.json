@@ -1,0 +1,6 @@
+{
+    "test_server_command" : {
+        "type": "role",
+        "roles": ["roleTest1", "roleTest2"]
+    }
+}
