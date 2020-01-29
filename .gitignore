@@ -1,6 +1,9 @@
 # Ignore
 node_modules/*
 log/*
+shortcuts_to_modules
 
 # Allow
 !node_modules/log_writer
+!node_modules/authorization_command
+!node_modules/constants
