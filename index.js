@@ -78,5 +78,8 @@ client.on('message', message => {
 });
 
 function error404(message) {
-  message.channel.send('Error 404: Function doesn\'t exist');
+  const constants = require('consts');
+  if(constants.SHOW_ERORR_404) {
+    message.channel.send('Error 404: Function doesn\'t exist');
+  }
 }
