@@ -20,7 +20,8 @@ Function Description
 Wirting the description before the function definition in the following format:<br/>
 /// PARAM<br/>
 //param1(param1 type) - param1 description<br/>
-//param2(param2 type) - param1 description<br/>
+//param2(param2 type) - param2 description<br/>
+//...<br/>
 /// Description - function description
 <br/><br/>
 
