@@ -1,6 +1,10 @@
 {
-    "test_server_command" : {
+    "text1" : {
         "type": "role",
         "roles": ["roleTest1", "roleTest2"]
+    },
+    "text2" : {
+        "type": "settings",
+        "settings": ["settingTest1", "settingTest2"]
     }
 }
