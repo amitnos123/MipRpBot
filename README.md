@@ -28,6 +28,6 @@ Wirting the description before the function definition in the following format:<
 /// PARAM<br/>
 //member(GuildMember) - The guild member which want to use the command<br/>
 //id(String) - id of the command<br/>
-/// Description - Return true or false for, if the member is allowed to use the command. Used for commands which are called through the server <br/
+/// Description - Return true or false for, if the member is allowed to use the command. Used for commands which are called through the server <br/>
 
 ***
