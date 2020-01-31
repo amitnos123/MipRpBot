@@ -1,5 +1,5 @@
 {
-    "state_name": {
+    "statuses_name": {
         "value_type": "type",
         "default_value": "default",
         "description": "description"
