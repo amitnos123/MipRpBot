@@ -77,6 +77,11 @@ client.on('message', message => {
   }
 });
 
+/**
+ * 
+ * @param {Message} message 
+ * @returns {void}
+ */
 function error404(message) {
   const constants = require('consts');
   if(constants.SHOW_ERORR_404) {
