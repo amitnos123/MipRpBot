@@ -1,13 +1,13 @@
 # MipRpBot
 
 General Notes
------------
+-------------
 Change '.config.json' to 'config.json' and insert your token and prefix of your bot.
 
 ***
 
-Structure
------------
+Project Structure
+-----------------
 
 data -&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Have files which keep read and write data for the bot to use<br/>
 general_commands -&nbsp;&nbsp;&nbsp;&nbsp;Commands which are called in dm and in the server<br/>
@@ -19,9 +19,17 @@ server_commands -&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Commands that are onl
 
 ***
 
+Naming Structure
+----------------
+Add when use <br/>
+Camel Case<br/>
+Snake Case<br/>
+
+***
+
 Function Description
 --------------------
-Wirting the description before the function definition in the following format(Closure Compiler by Google):<br/>
+Wirting the description before the function definition in the following format([Closure Compiler](https://github.com/google/closure-compiler/wiki/Annotating-JavaScript-for-the-Closure-Compiler) by Google):<br/>
 /**<br/>
 \* Function Description<br/>
 \* @param {type} member - Param Description<br/>
@@ -31,7 +39,6 @@ Wirting the description before the function definition in the following format(C
 \* .<br/>
 \* @returns {type} - Return Description<br/>
 \*/<br/>
-[Closure Compiler](https://github.com/google/closure-compiler/wiki/Annotating-JavaScript-for-the-Closure-Compiler) in GitHub
 <br/>
 
 #### for example:
