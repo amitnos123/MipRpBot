@@ -40,6 +40,13 @@ lw.logMessage('start', 'Connected to server');
 client.on('ready', function() {
   lw.logSplit();
   lw.logMessage('start', 'Bot is ready');
+
+  
+  const constants = require('consts');
+  const states_manager = require('states_manager');
+
+  const sm = new states_manager();
+  const sm2 = new states_manager(constants.DATA_DIRECTORY_PATH);
 });
 
 client.on('message', message => {
