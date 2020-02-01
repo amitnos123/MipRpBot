@@ -1,10 +1,23 @@
 {
-    "text1" : {
+    "text1": {
         "type": "role",
-        "roles": ["roleTest1", "roleTest2"]
+        "roles": [
+            "roleTest1",
+            "roleTest2"
+        ]
     },
-    "text2" : {
+    "text2": {
         "type": "settings",
-        "settings": ["settingTest1", "settingTest2"]
+        "settings": [
+            "settingTest1",
+            "settingTest2"
+        ]
+    },
+    "test_id": {
+        "type": "role",
+        "roles": [
+            "Mip1",
+            "Mip2"
+        ]
     }
 }

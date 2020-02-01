@@ -9,8 +9,11 @@ module.exports = {
     message.channel.send(this.id);
 
     const constants = require('consts');
+
     const authorization_command = require('authorization_command');
     const auth_command = new authorization_command(constants.DATA_DIRECTORY_PATH);
+    
     auth_command.auth_text_command(message.member, this.id);
+    auth_command.auth_create_command('test_id', constants.AUTHORIZATION_TYPE_ROLE, ['Mip1', 'Mip2']);
   },
 };
