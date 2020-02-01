@@ -23,10 +23,11 @@ Naming Structure
 ----------------
 
 ### <u>Camel Case</u>
-Variables
+* Variables
 
 ### <u>Snake Case</u>
-Functions
+* Functions
+* Class name
 
 ***
 
