@@ -13,6 +13,6 @@ module.exports = {
     const authorization_command = require('authorization_command');
     const auth_command = new authorization_command(constants.DATA_DIRECTORY_PATH);
     
-    auth_command.auth_remove_command('test_id');
+    auth_command.auth_remove_setting_command('test_settings');
   },
 };

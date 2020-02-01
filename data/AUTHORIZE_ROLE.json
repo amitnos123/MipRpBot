@@ -1,14 +1,11 @@
 {
-    "root": [
-    ],
-    "authRoleMip": [
-
-    ],
-    "settingTest1":[
+    "root": [],
+    "authRoleMip": [],
+    "settingTest1": [
         "Mipster2",
         "Mipster4"
     ],
-    "settingTest2":[
+    "settingTest2": [
         "Mipster3",
         "Mipster"
     ]
