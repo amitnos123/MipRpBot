@@ -40,13 +40,6 @@ lw.logMessage('start', 'Connected to server');
 client.on('ready', function() {
   lw.logSplit();
   lw.logMessage('start', 'Bot is ready');
-
-  
-  const constants = require('consts');
-  const states_manager = require('states_manager');
-
-  const sm = new states_manager();
-  const sm2 = new states_manager(constants.DATA_DIRECTORY_PATH);
 });
 
 client.on('message', message => {
@@ -85,13 +78,13 @@ client.on('message', message => {
 });
 
 /**
- * 
+ * Return a respose of command wasn't found
  * @param {Message} message 
  * @returns {void}
  */
 function error404(message) {
   const constants = require('consts');
   if(constants.SHOW_ERORR_404) {
-    message.channel.send('Error 404: Function doesn\'t exist');
+    message.channel.send(constants.MESSAGE_ERROR_404);
   }
 }
