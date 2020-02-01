@@ -21,9 +21,12 @@ server_commands -&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Commands that are onl
 
 Naming Structure
 ----------------
-Add when use <br/>
-Camel Case<br/>
-Snake Case<br/>
+
+### <u>Camel Case</u>
+Variables
+
+### <u>Snake Case</u>
+Functions
 
 ***
 
