@@ -12,7 +12,7 @@ Project Structure
 data -&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Have files which keep read and write data for the bot to use<br/>
 general_commands -&nbsp;&nbsp;&nbsp;&nbsp;Commands which are called in dm and in the server<br/>
 log -&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Keep all the log files<br/>
-node_modules -&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Libraries<br/>
+node_modules -&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Libraries\Modules<br/>
 personal_commands -&nbsp;&nbsp;Commands that are only called in dm with the bot<br/>
 resources -&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Keep images and a like<br/>
 server_commands -&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Commands that are only called in the server<br/>
@@ -25,9 +25,11 @@ Naming Structure
 ### <u>Camel Case</u>
 * Variables
 
+
 ### <u>Snake Case</u>
 * Functions
 * Class name
+* Constants in consts module - All should be snake and upper case
 
 ***
 
@@ -58,23 +60,46 @@ Wirting the description before the function definition in the following format([
 
 Project's Modules
 -----------------
-### constants
-Directory - 
+### <u>consts</u>
+#### Directory - \node_modules\constants
+#### Description
+Freeze object which hold the project's global constants.</br>
+To use it, request it as any other module and it as an object which is property is a constant. </br>
+Every constant should be snake and upper case.
+</br>
 
-### log_writer
-Directory - 
+### <u>log_writer</u>
+#### Directory - \node_modules\log_writer
+#### Description
+Object which write the log, to a givin directory.</br>
+The log file is the current date. As a resulat, it changes each day.</br>
+The log inside will have a time which was written.
+</br>
 
-### data_manager
-Directory - 
+### <u>data_manager</u>
+#### Directory - \node_modules\data_manager
+#### Description
 
-### authorization_command_manager
-Directory - 
+</br>
 
-### state_manager
-Directory - 
+### <u>authorization_command_manager</u>
+#### Directory - \node_modules\authorization_command_manager
+#### Description
 
-### items_manager
-Directory - 
+</br>
 
-### statuses_manager
-Directory - 
+### <u>stat_manager</u>
+#### Directory - \node_modules\stat_manager
+#### Description
+
+</br>
+
+### <u>items_manager</u>
+#### Directory - \node_modules\items_manager
+#### Description
+
+</br>
+
+### <u>statuses_manager</u>
+#### Directory - \node_modules\statuses_manager
+#### Description
