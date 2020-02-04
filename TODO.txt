@@ -1,0 +1,1 @@
+*Note to self, bot command that send images for a person as spoiler
