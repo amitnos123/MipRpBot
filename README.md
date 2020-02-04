@@ -103,3 +103,7 @@ The log inside will have a time which was written.
 ### <u>statuses_manager</u>
 #### Directory - \node_modules\statuses_manager
 #### Description
+
+### <u>actions_manager</u>
+#### Directory - \node_modules\statuses_manager
+#### Description

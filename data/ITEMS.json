@@ -1,7 +1,8 @@
 {
     "item_name": {
+        "description": "description",
         "quantatiy_allowed": true,
-        "amount" : "",
-        "description": "description"
+        "quantity" : "",
+        "quality": ""
     }
 }
