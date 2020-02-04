@@ -136,3 +136,9 @@ They key is the command name and the value is the command id.
     "test_server_command2": "text2"
 }
 </pre>
+
+## ACTIONS
+### <u>Description</u>
+something something
+### <u>Json Structure</u>
+something something
