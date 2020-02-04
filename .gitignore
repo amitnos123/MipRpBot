@@ -3,6 +3,7 @@ node_modules/*
 log/*
 shortcuts_to_modules
 config.json
+discord dungeons bot api.txt
 
 # Allow
 !node_modules/log_writer
@@ -11,3 +12,4 @@ config.json
 !node_modules/state_manager
 !node_modules/items_manager
 !node_modules/statuses_manager
+!node_modules/data_manager
