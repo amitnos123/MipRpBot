@@ -5,11 +5,10 @@ module.exports = {
   args: true,
   execute(client, message, args) {
     message.channel.send(`SERVER TEXT MESSAGE`);
-    message.channel.send(this.id);
 
     const constants = require('consts');
-    const authorization_command = require('authorization_command');
-    const auth_command = new authorization_command(constants.DATA_DIRECTORY_PATH);
-    auth_command.auth_text_command(message.member, this.id);
+    const itemsManager = require('items_manager');
+    const itemsM = new itemsManager();
+    itemsM.remove("item_code_test_create");
   },
 };
