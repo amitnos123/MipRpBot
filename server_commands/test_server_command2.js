@@ -11,8 +11,9 @@ module.exports = {
     const constants = require('consts');
 
     const authorization_command = require('authorization_command');
-    const auth_command = new authorization_command(constants.DATA_DIRECTORY_PATH);
+    const auth_command = new authorization_command();
+
+    auth_command.settings_remove('CreateSettings');
     
-    auth_command.auth_remove_setting_command('test_settings');
   },
 };
