@@ -6,14 +6,8 @@ module.exports = {
   id: "text2",
   execute(client, message, args) {
     message.channel.send(`SERVER TEXT MESSAGE 2`);
-    message.channel.send(this.id);
-
-    const constants = require('consts');
-
-    const authorization_command = require('authorization_command');
-    const auth_command = new authorization_command();
-
-    auth_command.settings_remove('CreateSettings');
-    
+    const commandsIdManager = require('commands_id_manager');
+    const comIdManager = new commandsIdManager();
+    message.channel.send(comIdManager.get_id(this.name));
   },
 };
