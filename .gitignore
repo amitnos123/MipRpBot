@@ -7,7 +7,7 @@ discord dungeons bot api.txt
 
 # Allow
 !node_modules/log_writer
-!node_modules/authorization_command
+!node_modules/authorization_command_manager
 !node_modules/consts
 !node_modules/states_manager
 !node_modules/items_manager

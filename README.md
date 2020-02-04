@@ -53,4 +53,28 @@ Wirting the description before the function definition in the following format([
 \* @returns {boolean} - Is the member is allowed to use the command<br/>
 \*/<br/>
 <br/>
+
 ***
+
+Project's Modules
+-----------------
+### constants
+Directory - 
+
+### log_writer
+Directory - 
+
+### data_manager
+Directory - 
+
+### authorization_command_manager
+Directory - 
+
+### state_manager
+Directory - 
+
+### items_manager
+Directory - 
+
+### statuses_manager
+Directory - 
