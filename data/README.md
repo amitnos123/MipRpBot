@@ -15,7 +15,7 @@ THIS_IS_AN_EXAMPLE
 
 ## AUTHORIZATION
 ### <u>Description</u>
-Json file to save authorization for the commands
+Json file which save authorization for the commands
 ### <u>Json Structure</u>
 Each command has it's own json, which the key is the command id.</br>
 Using id and not the command name, because the command name may change and then will need to update the authorization with it, if the key was the command name.</br>
@@ -65,13 +65,38 @@ If it equal to 'settings' then the json will have property 'settings' which will
 }
 </pre>
 
-## AUTHORIZE_ROLE
+## AUTHORIZE_ROLES
 ### <u>Description</u>
-something something
+Json file which save authorization roles for the bot.</br>
+Roles which don't need to be defined inside the guild.</br>
+Those roles are called settings.
 ### <u>Json Structure</u>
-something something
-
+The key is the setting's name and the value is an array.</br>
+The array holds all the usernames for members which belongs to the setting.
+<pre>
+{
+    "setting": [
+        "username1",
+        "username2",
+        "username3"
+    ]
+}
+</pre>
 #### For Example
+<pre>
+{
+    "root": [],
+    "authRoleMip": [],
+    "settingTest1": [
+        "Mipster2",
+        "Mipster4"
+    ],
+    "settingTest2": [
+        "Mipster3",
+        "Mipster"
+    ]
+}
+</pre>
 
 ## CHARACTERS
 ### <u>Description</u>
@@ -93,3 +118,21 @@ something something
 something something
 ### <u>Json Structure</u>
 something something
+
+## COMMANDS_ID
+### <u>Description</u>
+Json file which saves the ids of all the commands. Updates manualy.
+### <u>Json Structure</u>
+They key is the command name and the value is the command id.
+<pre>
+{
+    "command_name": "command_id"
+}
+</pre>
+#### For Example
+<pre>
+{
+    "test_server_command": "text1",
+    "test_server_command2": "text2"
+}
+</pre>
