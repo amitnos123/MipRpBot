@@ -9,7 +9,7 @@ discord dungeons bot api.txt
 !node_modules/log_writer
 !node_modules/authorization_command
 !node_modules/consts
-!node_modules/state_manager
+!node_modules/states_manager
 !node_modules/items_manager
 !node_modules/statuses_manager
 !node_modules/data_manager
