@@ -6,40 +6,40 @@ const fs = require('fs');
 const lw = new log_writer(constants.LOG_DIRECTORY_PATH);
 
 const Discord = require('discord.js');
-lw.logMessage('load', 'Loaded discord.js');
+lw.log_message('load', 'Loaded discord.js');
 
-lw.logMessage('start', 'Creating client');
+lw.log_message('start', 'Creating client');
 const client = new Discord.Client();
 
-lw.logMessage('start', 'Syncing Server Commands');
+lw.log_message('start', 'Syncing Server Commands');
 client.serverCommand = new Discord.Collection();
 const serverCommandFiles = fs.readdirSync(constants.SERVER_COMMANDS_DIRECTORY_PATH).filter(file => file.endsWith('.js'));
 
 for (const file of serverCommandFiles) {
   const command = require(constants.SERVER_COMMANDS_DIRECTORY_PATH + `\\${file}`);
-  lw.logMessage('start', '---' + command.name + ' was synced');
+  lw.log_message('start', '---' + command.name + ' was synced');
   client.serverCommand.set(command.name, command);
 }
 
-lw.logMessage('start', 'Syncing Personal Commands');
+lw.log_message('start', 'Syncing Personal Commands');
 client.personalCommand = new Discord.Collection();
 const personalCommandFiles = fs.readdirSync(constants.PERSONAL_COMMANDS_DIRECTORY_PATH).filter(file => file.endsWith('.js'));
 
 for (const file of personalCommandFiles) {
   const command = require(constants.PERSONAL_COMMANDS_DIRECTORY_PATH + `\\${file}`);
-  lw.logMessage('start', '---' + command.name + ' was synced');
+  lw.log_message('start', '---' + command.name + ' was synced');
   client.personalCommand.set(command.name, command);
 }
 
 const { prefix, token } = require('./config.json');
 
-lw.logMessage('start', 'Connecting to server');
+lw.log_message('start', 'Connecting to server');
 client.login(token);
-lw.logMessage('start', 'Connected to server');
+lw.log_message('start', 'Connected to server');
 
 client.on('ready', function() {
-  lw.logSplit();
-  lw.logMessage('start', 'Bot is ready');
+  lw.log_split();
+  lw.log_message('start', 'Bot is ready');
 });
 
 client.on('message', message => {
@@ -48,11 +48,11 @@ client.on('message', message => {
   if (!message.content.startsWith(prefix)) return;
 
   try {
-    lw.logMessage('info', 'On message Start');
+    lw.log_message('info', 'On message Start');
 
     const args = message.content.slice(prefix.length).split(' ');
     const command = args.shift();
-    lw.logMessage('debug', `${command} was called, with arguments: ${args}`);
+    lw.log_message('debug', `${command} was called, with arguments: ${args}`);
 
     if(message.channel.type === constants.CHANNELS_TYPES_DM) {
       if (!client.personalCommand.has(command)) {
@@ -70,10 +70,10 @@ client.on('message', message => {
       client.serverCommand.get(command).execute(client, message, args);
     }
 
-    lw.logMessage('info', 'On message End');
+    lw.log_message('info', 'On message End');
   }
   catch (err) {
-    lw.logMessage('error', err);
+    lw.log_message('error', err);
   }
 });
 
