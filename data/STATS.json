@@ -2,6 +2,8 @@
     "state_name": {
         "value_type": "type",
         "default_value": "default",
+        "min_value":"0",
+        "max_value":"100",
         "description": "description"
     }
 }
