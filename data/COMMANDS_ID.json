@@ -1,4 +1,1 @@
-{
-    "test_server_command": "text1",
-    "test_server_command2": "testText2"
-}
+{"test_server_command":"text1","test_server_command2":"testText2","test_auth_server":"2","whitelistCommand":"3"}
