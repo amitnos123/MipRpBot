@@ -37,14 +37,14 @@ lw.log_message('start', 'Connecting to server');
 client.login(token);
 lw.log_message('start', 'Connected to server');
 
-client.on('ready', function() {
+client.on('ready', function () {
   lw.log_split();
   lw.log_message('start', 'Bot is ready');
 });
 
 client.on('message', message => {
   if (message.author.bot) return;
-  
+
   if (!message.content.startsWith(prefix)) return;
 
   try {
@@ -54,20 +54,39 @@ client.on('message', message => {
     const command = args.shift();
     lw.log_message('debug', `${command} was called, with arguments: ${args}`);
 
-    if(message.channel.type === constants.CHANNELS_TYPES_DM) {
+    const commandsIdManager = require('commands_id_manager');
+    const comIdManager = new commandsIdManager();
+
+    const authorizationCommandManager = require('authorization_command_manager');
+    const authComManager = new authorizationCommandManager();
+
+    const commandId = comIdManager.get_id(command);
+
+    if (message.channel.type === constants.CHANNELS_TYPES_DM) { // Type DM
       if (!client.personalCommand.has(command)) {
         error404(message);
         return;
       }
 
-      client.personalCommand.get(command).execute(client, message, args);
-    } else if(message.channel.type === constants.CHANNELS_TYPES_TEXT) {
+      if (authComManager.auth_dm_command(commandId, message.author)) { // Is allow to use
+        message.channel.send(`Member ${message.author.username} is allow to use the command.`);
+        client.personalCommand.get(command).execute(client, message, args);
+      } else { // Isn't allow to use
+        message.channel.send(`Member ${message.author.username} isn't allow to use the command.`);
+      }
+
+    } else if (message.channel.type === constants.CHANNELS_TYPES_TEXT) { // Type Text
       if (!client.serverCommand.has(command)) {
         error404(message);
         return;
       }
 
-      client.serverCommand.get(command).execute(client, message, args);
+      if (authComManager.auth_text_command(commandId, message.member)) { // Is allow to use
+        message.channel.send(`Member ${message.member.user.username} is allow to use the command.`);
+        client.serverCommand.get(command).execute(client, message, args);
+      } else { // Isn't allow to use
+        message.channel.send(`Member ${message.member.user.username} isn't allow to use the command.`);
+      }
     }
 
     lw.log_message('info', 'On message End');
@@ -84,7 +103,7 @@ client.on('message', message => {
  */
 function error404(message) {
   const constants = require('consts');
-  if(constants.SHOW_ERORR_404) {
+  if (constants.SHOW_ERORR_404) {
     message.channel.send(constants.MESSAGE_ERROR_404);
   }
 }
