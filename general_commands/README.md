@@ -1,1 +1,0 @@
-Commands that can be used from direct messages and in the server\guild
