@@ -26,6 +26,10 @@ module.exports = {
                 authorizationSettings.create(setting);
             }
 
+            if (!commandOptions.includes(constants.COMMAND_OPTION_ADD)) { // If isn't add, the clear setting
+                authorizationSettings.clear_users(setting);
+            }
+
             for (let index = 1; index < args.length; index++) {
                 const element = args[index];
                 authorizationSettings.add_user(setting, element);
