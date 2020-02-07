@@ -78,13 +78,14 @@ The log inside will have a time which was written.
 ### <u>data_manager</u>
 #### Directory - \node_modules\data_manager
 #### Description
-
+Object to extend from for objects that are using JSONs files to save the data for long term.
 </br>
 
 ### <u>authorization_command_manager</u>
 #### Directory - \node_modules\authorization_command_manager
 #### Description
-
+Object which manage the authorization for the commands. </br>
+That's include authorization settings. Can construct authorization_settings object to manage the settings.
 </br>
 
 ### <u>stat_manager</u>
