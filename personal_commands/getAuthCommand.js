@@ -22,6 +22,12 @@ module.exports = {
             }
         } else {
             const commandId = comIdManager.get_id(args[0]);
+
+            if (commandId === undefined) {
+                message.channel.send('Command doesn\'t exist');
+                return; // Finish command here
+            }
+
             authMessageList = authComManager.get(commandId);
         }
 
@@ -29,9 +35,9 @@ module.exports = {
 
         for (let key in authMessageList) {
             if (authMessageList.hasOwnProperty(key)) {
+                sendMessage += `**${key}**\n`;
                 if (authMessageList[key] !== undefined) {
-                    sendMessage += `**${key}**\n`;
-                    sendMessage += `\`\`\`type = ${authMessageList[key].type}\n`;
+                    sendMessage += '```' + `type = ${authMessageList[key].type}\n`;
 
                     if (authMessageList[key].roles !== undefined) {
                         sendMessage += `roles = ${JSON.stringify(authMessageList[key].roles, undefined, 2)}\n`;
@@ -41,10 +47,19 @@ module.exports = {
                         sendMessage += `settings = ${JSON.stringify(authMessageList[key].settings, undefined, 2)}\n`;
                     }
 
-                    sendMessage += `\`\`\`\n`;
+                    sendMessage += '```';
+                } else {
+                    sendMessage += '*Empty*';
                 }
+                sendMessage += '\n';
             }
         }
+
+        if (authMessageList === undefined) {
+            sendMessage = 'Command doesn\'t has authorization.';
+        }
+
+        console.log(sendMessage);
 
         message.channel.send(sendMessage);
     },

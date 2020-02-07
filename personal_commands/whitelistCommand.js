@@ -7,23 +7,47 @@ module.exports = {
         if (args.length === 0) {
             message.channel.send('No arguments were sent.');
         } else {
+            //Arguments
+            const commandName = args[0];
+            let authType = args[1];
+
             const constants = require('consts');
+            if (authType === constants.COMMAND_OPTION_DONT_CHANGE) {
+                authType = undefined;
+            }
+
             const commandsIdManager = require('commands_id_manager');
             const authorizationCommandManager = require('authorization_command_manager');
 
             const comIdManager = new commandsIdManager();
             const authComManager = new authorizationCommandManager();
 
-            const commandId = comIdManager.get_id(this.name);
+            const commandId = comIdManager.get_id(commandName);
 
             // If auth for command doesn't exist
-            if (!authComManager.auth_exists(commandId)) { authComManager.auth_create_command(commandId, constants.AUTHORIZATION_TYPE_ROLE, []); }
-
-            if (args[0] !== constants.AUTHORIZATION_TYPE_ROLE || args[0] !== constants.AUTHORIZATION_TYPE_SETTINGS) {
-                message.channel.send(`Type isn't valid. Type may be '${constants.AUTHORIZATION_TYPE_ROLE}', '${constants.AUTHORIZATION_TYPE_SETTINGS}'`);
-            } else {
-                authComManager.auth_update_command(commandId, args[0]);
+            if (!authComManager.auth_exists(commandId)) {
+                authComManager.auth_create_command(commandId, constants.AUTHORIZATION_TYPE_ROLE, []);
             }
+
+            if (authType !== undefined) {
+                if (authType.localeCompare(constants.AUTHORIZATION_TYPE_ROLE) !== 0 && authType.localeCompare(constants.AUTHORIZATION_TYPE_SETTINGS) !== 0) {
+                    message.channel.send(`'${authType}' isn't a valid type. Type may be '${constants.AUTHORIZATION_TYPE_ROLE}', '${constants.AUTHORIZATION_TYPE_SETTINGS}'`);
+                }
+            }
+
+            let authGroup = [];
+            if (args[2] !== constants.COMMAND_OPTION_DONT_CHANGE) {
+                for (let index = 2; index < args.length; index++) {
+                    const element = args[index];
+                    authGroup.push(element);
+                }
+            } else {
+                authGroup = undefined;
+            }
+
+            authComManager.auth_update_command(commandId, authType, authGroup);
+
+            message.channel.send('Authorization was updated.');
         }
     },
 };
