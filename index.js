@@ -11,6 +11,10 @@ lw.log_message('load', 'Loaded discord.js');
 lw.log_message('start', 'Creating client');
 const client = new Discord.Client();
 
+const commandsIdManager = require('commands_id_manager');
+lw.log_message('start', 'Loaded commands_id_manager');
+const comIdManager = new commandsIdManager();
+
 lw.log_message('start', 'Syncing Server Commands');
 client.serverCommand = new Discord.Collection();
 const serverCommandFiles = fs.readdirSync(constants.SERVER_COMMANDS_DIRECTORY_PATH).filter(file => file.endsWith('.js'));
@@ -19,6 +23,9 @@ for (const file of serverCommandFiles) {
   const command = require(constants.SERVER_COMMANDS_DIRECTORY_PATH + `\\${file}`);
   lw.log_message('start', '---' + command.name + ' was synced');
   client.serverCommand.set(command.name, command);
+  if (!comIdManager.has_id(command.name)) {
+    comIdManager.create_id(command.name);
+  }
 }
 
 lw.log_message('start', 'Syncing Personal Commands');
@@ -29,6 +36,9 @@ for (const file of personalCommandFiles) {
   const command = require(constants.PERSONAL_COMMANDS_DIRECTORY_PATH + `\\${file}`);
   lw.log_message('start', '---' + command.name + ' was synced');
   client.personalCommand.set(command.name, command);
+  if (!comIdManager.has_id(command.name)) {
+    comIdManager.create_id(command.name);
+  }
 }
 
 const { prefix, token } = require('./config.json');
@@ -54,9 +64,6 @@ client.on('message', message => {
     const command = args.shift();
     lw.log_message('debug', `${command} was called, with arguments: ${args}`);
 
-    const commandsIdManager = require('commands_id_manager');
-    const comIdManager = new commandsIdManager();
-
     const authorizationCommandManager = require('authorization_command_manager');
     const authComManager = new authorizationCommandManager();
 
@@ -69,10 +76,10 @@ client.on('message', message => {
       }
 
       if (authComManager.auth_dm_command(commandId, message.author)) { // Is allow to use
-        message.channel.send(`Member ${message.author.username} is allow to use the command.`);
+        // message.channel.send(`Member ${message.author.username} is allow to use the command.`);
         client.personalCommand.get(command).execute(client, message, args);
       } else { // Isn't allow to use
-        message.channel.send(`Member ${message.author.username} isn't allow to use the command.`);
+        // message.channel.send(`Member ${message.author.username} isn't allow to use the command.`);
       }
 
     } else if (message.channel.type === constants.CHANNELS_TYPES_TEXT) { // Type Text
@@ -82,10 +89,10 @@ client.on('message', message => {
       }
 
       if (authComManager.auth_text_command(commandId, message.member)) { // Is allow to use
-        message.channel.send(`Member ${message.member.user.username} is allow to use the command.`);
+        // message.channel.send(`Member ${message.member.user.username} is allow to use the command.`);
         client.serverCommand.get(command).execute(client, message, args);
       } else { // Isn't allow to use
-        message.channel.send(`Member ${message.member.user.username} isn't allow to use the command.`);
+        // message.channel.send(`Member ${message.member.user.username} isn't allow to use the command.`);
       }
     }
 
