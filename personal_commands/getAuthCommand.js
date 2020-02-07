@@ -59,8 +59,6 @@ module.exports = {
             sendMessage = 'Command doesn\'t has authorization.';
         }
 
-        console.log(sendMessage);
-
         message.channel.send(sendMessage);
     },
 };
