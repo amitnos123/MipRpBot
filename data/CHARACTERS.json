@@ -1,2 +1,17 @@
 {
+    "chracterName": {
+        "belong": "username",
+        "stats": {
+            "1": "stat1",
+            "2": "stat2"
+        },
+        "statuses": {
+            "1": "status1",
+            "2": "status2"
+        },
+        "inventory": {
+            "1": "item1",
+            "2": "item2"
+        }
+    }
 }
