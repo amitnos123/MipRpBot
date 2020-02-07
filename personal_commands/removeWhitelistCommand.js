@@ -7,7 +7,19 @@ module.exports = {
         if (args.length === 0) {
             message.channel.send('No arguments were sent.');
         } else {
-            // CODE
+            const commandName = args[0];
+
+            const authorizationCommandManager = require('authorization_command_manager');
+            const authComManager = new authorizationCommandManager();
+
+            const commandsIdManager = require('commands_id_manager');
+            const comIdManager = new commandsIdManager();
+
+            const commandId = comIdManager.get_id(commandName);
+
+            authComManager.auth_remove_command(commandId);
+
+            message.channel.send('The command\'s authorization was deleted.');
         }
     },
 };
