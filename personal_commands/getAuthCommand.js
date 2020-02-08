@@ -11,6 +11,8 @@ module.exports = {
         const comIdManager = new commandsIdManager();
         let authMessageList = {};
 
+        let sendMessage = '';
+
         if (args.length === 0) {
             const authList = authComManager.get();
             const commandsId = comIdManager.get_id();
@@ -20,8 +22,16 @@ module.exports = {
                     authMessageList[prop] = authList[commandsId[prop]];
                 }
             }
+
+            for (let key in authMessageList) {
+                if (authMessageList.hasOwnProperty(key)) {
+                    sendMessage += messageSingleCommand(authMessageList[key], key);
+                    sendMessage += '\n';
+                }
+            }
         } else {
-            const commandId = comIdManager.get_id(args[0]);
+            const commandName = args[0];
+            const commandId = comIdManager.get_id(commandName);
 
             if (commandId === undefined) {
                 message.channel.send('Command doesn\'t exist');
@@ -29,30 +39,9 @@ module.exports = {
             }
 
             authMessageList = authComManager.get(commandId);
-        }
 
-        let sendMessage = '';
-
-        for (let key in authMessageList) {
-            if (authMessageList.hasOwnProperty(key)) {
-                sendMessage += `**${key}**\n`;
-                if (authMessageList[key] !== undefined) {
-                    sendMessage += '```' + `type = ${authMessageList[key].type}\n`;
-
-                    if (authMessageList[key].roles !== undefined) {
-                        sendMessage += `roles = ${JSON.stringify(authMessageList[key].roles, undefined, 2)}\n`;
-                    }
-
-                    if (authMessageList[key].settings !== undefined) {
-                        sendMessage += `settings = ${JSON.stringify(authMessageList[key].settings, undefined, 2)}\n`;
-                    }
-
-                    sendMessage += '```';
-                } else {
-                    sendMessage += '*Empty*';
-                }
-                sendMessage += '\n';
-            }
+            sendMessage += messageSingleCommand(authMessageList, commandName);
+            sendMessage += '\n';
         }
 
         if (authMessageList === undefined) {
@@ -62,3 +51,29 @@ module.exports = {
         message.channel.send(sendMessage);
     },
 };
+
+/**
+ * Function which return the message to send, for a given command
+ * @param {JSON} commandJson - Json of the command that hold the authrazation data on the command
+ * @param {string} commandName - The name of the command
+ * @returns {string} - Return the message for a command
+ */
+function messageSingleCommand(commandJson, commandName) {
+    let message = `**${commandName}:** `;
+    if (commandJson !== undefined) {
+        message += "```diff\n" + `- type = ${commandJson.type}\n`;
+
+        if (commandJson.roles !== undefined) {
+            message += `- roles = ${JSON.stringify(commandJson.roles)}\n`;
+        }
+
+        if (commandJson.settings !== undefined) {
+            message += `- settings = ${JSON.stringify(commandJson.settings)}\n`;
+        }
+
+        message += "\n```";
+    } else {
+        message += '*Empty*';
+    }
+    return message;
+}

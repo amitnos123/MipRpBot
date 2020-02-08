@@ -7,41 +7,18 @@ module.exports = {
         const authorizationCommandManager = require('authorization_command_manager');
         const authorizationSettings = new authorizationCommandManager.authorizationSettings();
 
-        const emptySettingMessage = '*Empty Setting*';
-
         let messageSend = '';
         if (args.length === 0) { // Return all
-            for (const prop in authorizationSettings.authSettingsArr) {
-                messageSend += `**${prop}** \n`;
-                if (authorizationSettings.authSettingsArr[prop].length > 0) {
-                    messageSend += '``` ';
-                    for (let innerIndex = 0; innerIndex < authorizationSettings.authSettingsArr[prop].length; innerIndex++) {
-                        const innerProp = authorizationSettings.authSettingsArr[prop][innerIndex];
-                        messageSend += `${innerProp}, `;
-                    }
-                    messageSend = messageSend.substring(0, messageSend.length - 2); // remove last 2 chars which are ", "
-                    messageSend += '```';
-                } else {
-                    messageSend += emptySettingMessage;
-                }
+            for (const settingName in authorizationSettings.authSettingsArr) {
+                messageSend += messageSingleCommand(authorizationSettings.authSettingsArr[settingName], settingName);
                 messageSend += '\n\n';
             }
         } else { // Givin spesific settings
             for (let index = 0; index < args.length; index++) {
-                const prop = args[index];
-                if (authorizationSettings.authSettingsArr[prop] !== undefined) {
-                    messageSend += `**${prop}**\n`;
-                    if (authorizationSettings.authSettingsArr[prop].length > 0) {
-                        messageSend += '```';
-                        for (let innerIndex = 0; innerIndex < authorizationSettings.authSettingsArr[prop].length; innerIndex++) {
-                            const innerProp = authorizationSettings.authSettingsArr[prop][innerIndex];
-                            messageSend += `${innerProp}, `;
-                        }
-                        messageSend = messageSend.substring(0, messageSend.length - 2); // remove last 2 chars which are ", "
-                        messageSend += '```';
-                    } else {
-                        messageSend += emptySettingMessage;
-                    }
+                const settingName = args[index];
+                const settingJson = authorizationSettings.authSettingsArr[settingName];
+                if (settingJson !== undefined) {
+                    messageSend += messageSingleCommand(settingJson, settingName);
                     messageSend += '\n\n';
                 }
             }
@@ -50,3 +27,28 @@ module.exports = {
         message.channel.send(messageSend);
     },
 };
+
+/**
+ * Function which return the message to send, for a given setting
+ * @param {JSON} settingJson - Json of the setting that hold the authrazation data
+ * @param {string} settingName - The name of the setting
+ * @returns {string} - Return the message for a setting
+ */
+function messageSingleCommand(settingJson, settingName) {
+
+    let message = `**${settingName}:** `;
+
+    if (settingJson.length > 0) {
+        message += '```diff\n- ';
+        for (let innerIndex = 0; innerIndex < settingJson.length; innerIndex++) {
+            const innerProp = settingJson[innerIndex];
+            message += `${innerProp}, `;
+        }
+        message = message.substring(0, message.length - 2); // remove last 2 chars which are ", "
+        message += '```';
+    } else {
+        message += '*Empty Setting*';
+    }
+
+    return message;
+}
