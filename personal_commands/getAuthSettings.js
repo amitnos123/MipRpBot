@@ -16,7 +16,7 @@ module.exports = {
         } else { // Givin spesific settings
             for (let index = 0; index < args.length; index++) {
                 const settingName = args[index];
-                const settingJson = authorizationSettings.authSettingsArr[settingName];
+                const settingJson = authorizationSettings.get(settingName);
                 if (settingJson !== undefined) {
                     messageSend += messageSingleCommand(settingJson, settingName);
                     messageSend += '\n\n';
