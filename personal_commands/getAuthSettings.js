@@ -10,7 +10,7 @@ module.exports = {
         let messageSend = '';
         if (args.length === 0) { // Return all
             for (const settingName in authorizationSettings.authSettingsArr) {
-                messageSend += messageSingleCommand(authorizationSettings.authSettingsArr[settingName], settingName);
+                messageSend += messageSingleSetting(authorizationSettings.authSettingsArr[settingName], settingName);
                 messageSend += '\n\n';
             }
         } else { // Givin spesific settings
@@ -18,7 +18,7 @@ module.exports = {
                 const settingName = args[index];
                 const settingJson = authorizationSettings.get(settingName);
                 if (settingJson !== undefined) {
-                    messageSend += messageSingleCommand(settingJson, settingName);
+                    messageSend += messageSingleSetting(settingJson, settingName);
                     messageSend += '\n\n';
                 }
             }
@@ -34,7 +34,7 @@ module.exports = {
  * @param {string} settingName - The name of the setting
  * @returns {string} - Return the message for a setting
  */
-function messageSingleCommand(settingJson, settingName) {
+function messageSingleSetting(settingJson, settingName) {
 
     let message = `**${settingName}:** `;
 
