@@ -105,7 +105,7 @@ client.on('message', message => {
 
 /**
  * Return a respose of command wasn't found
- * @param {Message} message 
+ * @param {Message} message - The object message from the 'message' event
  * @returns {void}
  */
 function error404(message) {
