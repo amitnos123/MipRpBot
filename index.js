@@ -75,7 +75,7 @@ client.on('message', message => {
 
     const args = message.content.slice(prefix.length).split(' ');
     const command = args.shift();
-    lw.log_message('debug', `${command} was called, with arguments: ${args}`);
+    lw.log_message('debug', `${command} was called, with arguments: ${JSON.stringify(args)} by '${message.author.username}'`);
 
     const authorizationCommandManager = require('authorization_command_manager');
     const authComManager = new authorizationCommandManager();
