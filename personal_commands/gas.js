@@ -1,7 +1,7 @@
 const path = require('path');
 module.exports = {
     name: path.basename(__filename).split('.').slice(0, -1).join('.'),
-    description: '',
+    description: 'Get the all authorization settings or specific authorization settings',
     args: true,
     execute(client, message, args) {
         const authorizationCommandManager = require('authorization_command_manager');

@@ -1,7 +1,7 @@
 const path = require('path');
 module.exports = {
     name: path.basename(__filename).split('.').slice(0, -1).join('.'),
-    description: '',
+    description: 'Get the authorization for all the commands or for a specific commands.',
     args: true,
     execute(client, message, args) {
         const commandsIdManager = require('commands_id_manager');
