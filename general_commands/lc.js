@@ -6,8 +6,6 @@ module.exports = {
     description: 'Returns list the bot\'s commands.',
     args: true,
     execute(client, message, args) {
-
-
         const embedCommandOptionsMessage = new discord.RichEmbed()
             .setColor('#ff0000') // RED
             .setTitle(':tools:  Commands\' Options');
@@ -30,7 +28,7 @@ module.exports = {
 /**
  * Create a RichEmbed for the commands given
  * @param {discord.Collection} commands - The commands which will be in the list
- * @param {string} title - Titke if the RichEmbed
+ * @param {string} title - Title if the RichEmbed
  * @param {string} color - Color of the RichEmbed
  * @returns {discord.RichEmbed} - The RichEmbed which was created and defined from the given commands, title, color
  */
