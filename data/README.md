@@ -108,28 +108,16 @@ something something
 ### <u>Description</u>
 Json file, which save all the items definitions which are made.
 ### <u>Json Structure</u>
-The key is the item's code. That way, the item's name isn't the key and can change without causing problems.</br>
-The value is an object with the properties:
-* name - name of the item
-* description - description for the item
-* quantatiy_allowed - is allowed that quantity be over 1
-* type - what type of item is it. Base on the type, there may be more propertiesto the item
+The key is the item's name. </br>
+The value is an object with the property description. Description holds the item's description.
 #### For Example
 <pre>
 {
-    "item_code": {
-        "name": "name"
-        "description": "description",
-        "quantatiy_allowed": true,
-        "type": "resources"
+    "item_name": {
+        "description": "description"
     }
 }
 </pre>
-## ITEMS_TYPES
-### <u>Description</u>
-something something
-### <u>Json Structure</u>
-something something
 
 ## STATSES
 ### <u>Description</u>
