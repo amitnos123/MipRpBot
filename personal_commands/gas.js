@@ -36,7 +36,12 @@ module.exports = {
  */
 function message_single_setting(settingJson, settingName) {
 
-    let message = "\`\`\`diff\n-★ " + `${settingName}\n`;
+    let message = "\`\`\`md\n★ " + `${settingName}\n`;
+
+    for (let index = 0; index < settingName.length; index++) {
+        message += '=';
+    }
+    message += '==\n';
 
     if (settingJson.length > 0) {
         for (let innerIndex = 0; innerIndex < settingJson.length; innerIndex++) {

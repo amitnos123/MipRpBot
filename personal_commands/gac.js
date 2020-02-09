@@ -59,7 +59,13 @@ module.exports = {
  * @returns {string} - Return the message for a command
  */
 function message_single_command(commandJson, commandName) {
-    let message = "\`\`\`diff\n-★ " + `${commandName}\n`;
+    let message = "\`\`\`md\n★ " + `${commandName}\n`;
+
+    for (let index = 0; index < commandName.length; index++) {
+        message += '=';
+    }
+    message += '==\n';
+
     if (commandJson !== undefined) {
         message += `type = ${commandJson.type}\n`;
 
