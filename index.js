@@ -41,6 +41,19 @@ for (const file of personalCommandFiles) {
   }
 }
 
+lw.log_message('start', 'Syncing General Commands');
+client.generalCommand = new Discord.Collection();
+const generalCommandFiles = fs.readdirSync(constants.GENERAL_COMMANDS_DIRECTORY_PATH).filter(file => file.endsWith('.js'));
+
+for (const file of generalCommandFiles) {
+  const command = require(constants.GENERAL_COMMANDS_DIRECTORY_PATH + `\\${file}`);
+  lw.log_message('start', '---' + command.name + ' was synced');
+  client.generalCommand.set(command.name, command);
+  if (!comIdManager.has_id(command.name)) {
+    comIdManager.create_id(command.name);
+  }
+}
+
 const { prefix, token } = require('./config.json');
 
 lw.log_message('start', 'Connecting to server');
@@ -69,7 +82,9 @@ client.on('message', message => {
 
     const commandId = comIdManager.get_id(command);
 
-    if (message.channel.type === constants.CHANNELS_TYPES_DM) { // Type DM
+    if (client.generalCommand.has(command)) { // Type General
+      client.generalCommand.get(command).execute(client, message, args);
+    } else if (message.channel.type === constants.CHANNELS_TYPES_DM) { // Type DM
       if (!client.personalCommand.has(command)) {
         error404(message);
         return;

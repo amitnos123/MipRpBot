@@ -13,8 +13,9 @@ data -&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n
 log -&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Keep all the log files<br/>
 node_modules -&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Libraries\Modules<br/>
 personal_commands -&nbsp;&nbsp;Commands that are only called in dm with the bot<br/>
+general_commands -&nbsp;&nbsp;&nbsp;&nbsp;Commands that are called from both the server and from DM<br/>
+server_commands -&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Commands that are only called in the server<br/>
 resources -&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Keep images and a like<br/>
-server_commands -&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Commands that are only called in the server<br/>
 
 ***
 
