@@ -59,21 +59,20 @@ module.exports = {
  * @returns {string} - Return the message for a command
  */
 function message_single_command(commandJson, commandName) {
-    let message = `**${commandName}:** `;
+    let message = "\`\`\`diff\n-★ " + `${commandName}\n`;
     if (commandJson !== undefined) {
-        message += "```diff\n" + `- type = ${commandJson.type}\n`;
+        message += `type = ${commandJson.type}\n`;
 
         if (commandJson.roles !== undefined) {
-            message += `- roles = ${JSON.stringify(commandJson.roles)}\n`;
+            message += `roles = ${JSON.stringify(commandJson.roles)}\n`;
         }
 
         if (commandJson.settings !== undefined) {
-            message += `- settings = ${JSON.stringify(commandJson.settings)}\n`;
+            message += `settings = ${JSON.stringify(commandJson.settings)}\n`;
         }
-
-        message += "\n```";
     } else {
-        message += '*Empty*';
+        message += 'Empty';
     }
+    message += "\n```";
     return message;
 }
