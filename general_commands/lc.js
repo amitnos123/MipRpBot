@@ -10,7 +10,7 @@ module.exports = {
 
         const embedCommandOptionsMessage = new discord.RichEmbed()
             .setColor('#ff0000') // RED
-            .setTitle('Commands\' Options');
+            .setTitle(':tools:  Commands\' Options');
 
 
         commandOptionsMessage = `\`${constants.COMMAND_OPTION_ADD}\`: To add and not overwrite.`;
@@ -19,11 +19,11 @@ module.exports = {
         embedCommandOptionsMessage.setDescription(commandOptionsMessage);
         message.channel.send(embedCommandOptionsMessage);
 
-        message.channel.send(command_list_embed_message(client.generalCommand, 'General Commands - Called from anywhere', '#ffff00')); // Yellow
+        message.channel.send(command_list_embed_message(client.generalCommand, ':globe_with_meridians: General Commands - Called from anywhere', '#ffff00')); // Yellow
 
-        message.channel.send(command_list_embed_message(client.personalCommand, 'Personal Commands - Called from DM', '#00ff00')); // Green
+        message.channel.send(command_list_embed_message(client.personalCommand, ':robot: Personal Commands - Called from DM', '#00ff00')); // Green
 
-        message.channel.send(command_list_embed_message(client.serverCommand, 'Server Commands - Called from Server', '#00ffff')); // Cyan
+        message.channel.send(command_list_embed_message(client.serverCommand, ':desktop: Server Commands - Called from Server', '#00ffff')); // Cyan
     },
 };
 

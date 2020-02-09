@@ -1,10 +1,9 @@
 const path = require('path');
 module.exports = {
     name: path.basename(__filename).split('.').slice(0, -1).join('.'),
-    description: 'Remove a status. The status\'s data would be deleted from the bot.',
+    description: 'Grand items for a character.',
     args: true,
     execute(client, message, args) {
-        //CODE
         message.channel.send('Implement');
     },
 };

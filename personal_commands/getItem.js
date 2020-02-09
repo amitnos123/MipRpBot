@@ -1,7 +1,7 @@
 const path = require('path');
 module.exports = {
     name: path.basename(__filename).split('.').slice(0, -1).join('.'),
-    description: '',
+    description: 'Retrive data of a given item, if no stat is given will return every item with it\'s data.',
     args: true,
     execute(client, message, args) {
         const itemManager = require('items_manager');
