@@ -25,7 +25,7 @@ module.exports = {
 
             for (let key in authMessageList) {
                 if (authMessageList.hasOwnProperty(key)) {
-                    sendMessage += messageSingleCommand(authMessageList[key], key);
+                    sendMessage += message_single_command(authMessageList[key], key);
                     sendMessage += '\n';
                 }
             }
@@ -40,7 +40,7 @@ module.exports = {
 
             authMessageList = authComManager.get(commandId);
 
-            sendMessage += messageSingleCommand(authMessageList, commandName);
+            sendMessage += message_single_command(authMessageList, commandName);
             sendMessage += '\n';
         }
 
@@ -58,7 +58,7 @@ module.exports = {
  * @param {string} commandName - The name of the command
  * @returns {string} - Return the message for a command
  */
-function messageSingleCommand(commandJson, commandName) {
+function message_single_command(commandJson, commandName) {
     let message = `**${commandName}:** `;
     if (commandJson !== undefined) {
         message += "```diff\n" + `- type = ${commandJson.type}\n`;

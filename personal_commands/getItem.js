@@ -11,7 +11,7 @@ module.exports = {
         if (args.length === 0) { // Return all
             const itemsJson = itemMan.get();
             for (const itemName in itemsJson) {
-                messageSend += messageSingleItem(itemsJson[itemName], itemName);
+                messageSend += message_single_item(itemsJson[itemName], itemName);
                 messageSend += '\n\n';
             }
         } else { // Givin spesific item
@@ -19,7 +19,7 @@ module.exports = {
                 const itemName = args[index];
                 const itemJson = itemMan.get(itemName);
                 if (itemJson !== undefined) {
-                    messageSend += messageSingleItem(itemJson, itemName);
+                    messageSend += message_single_item(itemJson, itemName);
                     messageSend += '\n\n';
                 }
             }
@@ -35,7 +35,7 @@ module.exports = {
  * @param {string} itemName - The name of the item
  * @returns {string} - Return the message for a item
  */
-function messageSingleItem(itemJson, itemName) {
+function message_single_item(itemJson, itemName) {
 
     let message = `**${itemName}:** `;
 
