@@ -11,9 +11,9 @@ module.exports = {
                 const commandName = args[index];
                 if (client.generalCommand.has(commandName)) { // Type General
                     message.channel.send(create_help_command_embed_message(commandName, client.generalCommand.get(commandName), '#297780'));
-                } else if (client.personalCommand.has(commandName)) { // Type General
+                } else if (client.personalCommand.has(commandName)) { // Type DM \ Personal
                     message.channel.send(create_help_command_embed_message(commandName, client.personalCommand.get(commandName), '#297780'));
-                } else if (client.serverCommand.has(commandName)) { // Type General
+                } else if (client.serverCommand.has(commandName)) { // Type Text \ Server
                     message.channel.send(create_help_command_embed_message(commandName, client.serverCommand.get(commandName), '#297780'));
                 }
             }
