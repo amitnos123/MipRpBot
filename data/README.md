@@ -100,9 +100,54 @@ The array holds all the usernames for members which belongs to the setting.
 
 ## CHARACTERS
 ### <u>Description</u>
-something something
+Json file to hold information about the character.
 ### <u>Json Structure</u>
-something something
+The key is the character's name. The value holds a JSON which hold:
+* The value of belong is the person's username which the character belong's to.
+* The value of stats is a JSON which each key is the name of the stat and the value is the value of the stat.
+* The value of statuses is a JSON which each key is the name of the status and the value is the value of the status.
+* The value of inventory is a JSON which each key is a serial number and the value is item's value.
+<pre>
+{
+    "chracterName": {
+        "belong": "username",
+        "stats": {
+            "stat1": "how much",
+            "stat": "how much"
+        },
+        "statuses": {
+            "status1": "how much",
+            "status2": "how much"
+        },
+        "inventory": {
+            "1": "item1",
+            "2": "item2"
+        }
+    }
+}
+</pre>
+
+#### For Example
+<pre>
+{
+    "Bob": {
+        "belong": "Alice",
+        "stats": {
+            "str": "12",
+            "dex": "17"
+        },
+        "statuses": {
+            "drunk": "how much drunk",
+            "sleepy": "how much sleepy"
+        },
+        "inventory": {
+            "1": "sword",
+            "2": "shield",
+            "3": "robot cat",
+        }
+    }
+}
+</pre>
 
 ## ITEMS
 ### <u>Description</u>
@@ -153,3 +198,57 @@ They key is the command name and the value is the command id.
 something something
 ### <u>Json Structure</u>
 something something
+
+## CRAFTING_RECIPES
+### <u>Description</u>
+Json to keep the crafting recipies for users. </br>
+Some items may be used more then one. For example a knife, a tool to use in craft that you need, and you keep after finishing the crafting.
+### <u>Json Structure</u>
+The key is the item's name which will be crafted. </br>
+The value is a JSON with keys that are the names of the ingredients. There is also a extra key which is description, it for adding extra information as text to the crafting. </br>
+Each ingredient hold a JSON which have 2 keys:
+* quantity - How much you need to craft the item.
+* keep - If you are going to keep the ingredient after crafting.
+<pre>
+{
+    "crafted_item_name": {
+        "ingredient_name_1": {
+            "quantity": "number",
+            "keep": "keep after craft"
+        },
+        "ingredient_name_2": {
+            "quantity": "number",
+            "keep": "keep after craft"
+        },
+        "description": "text text"
+    }
+}
+</pre>
+#### For Example
+<pre>
+{
+    "Optimus Prime": {
+        "Metal arm": {
+            "quantity": "2",
+            "keep": "false"
+        },
+        "Metal Leg": {
+            "quantity": "2",
+            "keep": "false"
+        },
+        "Metal head": {
+            "quantity": "1",
+            "keep": "false"
+        },
+        "Metal Torso": {
+            "quantity": "1",
+            "keep": "false"
+        },
+        "Spark": {
+            "quantity": "1",
+            "keep": "false"
+        },
+        "description": "Crafting Optimus Prime"
+    }
+}
+</pre>

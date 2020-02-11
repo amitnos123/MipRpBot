@@ -1,0 +1,13 @@
+{
+    "crafted_item_name": {
+        "ingredient_name_1": {
+            "quantity": "number",
+            "keep": "keep after craft"
+        },
+        "ingredient_name_2": {
+            "quantity": "number",
+            "keep": "keep after craft"
+        },
+        "description": "text text"
+    }
+}
