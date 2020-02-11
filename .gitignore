@@ -15,3 +15,4 @@ discord dungeons bot api.txt
 !node_modules/data_manager
 !node_modules/commands_id_manager
 !node_modules/actions_manager
+!node_modules/characters_manager
