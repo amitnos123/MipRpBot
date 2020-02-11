@@ -11,9 +11,11 @@ module.exports = {
             .setTitle(':tools:  Commands\' Options');
 
 
-        commandOptionsMessage = `\`${constants.COMMAND_OPTION_ADD}\`: To add and not overwrite.`;
+        commandOptionsMessage = `\`${constants.COMMAND_OPTION_ADD}\`: ${constants.COMMAND_OPTION_ADD_DESCRIPTION}.`;
         commandOptionsMessage += '\n';
-        commandOptionsMessage += `\`${constants.COMMAND_OPTION_DONT_CHANGE}\`: Don't change the current value.`;
+        commandOptionsMessage += `\`${constants.COMMAND_OPTION_DONT_CHANGE}\`: ${constants.COMMAND_OPTION_DONT_CHANGE_DESCRIPTION}`;
+        commandOptionsMessage += '\n';
+        commandOptionsMessage += `\`${constants.COMMAND_OPTION_ALL}\`: ${constants.COMMAND_OPTION_ALL_DESCRIPTION}`;
         embedCommandOptionsMessage.setDescription(commandOptionsMessage);
         message.channel.send(embedCommandOptionsMessage);
 
