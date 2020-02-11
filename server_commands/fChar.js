@@ -4,6 +4,21 @@ module.exports = {
   description: 'Create\\Update a character.',
   args: true,
   execute(client, message, args) {
-    message.channel.send('Implement');
+    if (args.length === 0) {
+      message.channel.send('No character name was given.');
+    } else {
+      const charName = args[0];
+
+      const charactersManager = require('characters_manager');
+      const charMan = new charactersManager();
+
+      if (charMan.exist(charName)) {
+        message.channel.send(`Character with name '${charName}' already exists.`);
+      } else {
+        charMan.create(charName, message.member.user.username);
+
+        message.channel.send(`Character '${charName}' was created.`);
+      }
+    }
   },
 };

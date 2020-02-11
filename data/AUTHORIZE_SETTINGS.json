@@ -1,1 +1,17 @@
-{"root":[],"NameSettings":["Mipster","HeeJin"],"+a":["NameSettings","Mipster"]}
+{
+    "root": [],
+    "NameSettings": [
+        "Mipster",
+        "HeeJin"
+    ],
+    "+a": [
+        "root",
+        "Mipster"
+    ],
+    "Mipster": [],
+    "+": [
+        "a",
+        "root",
+        "Mipster"
+    ]
+}
