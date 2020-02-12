@@ -75,7 +75,7 @@ module.exports = {
                                 toCharacter.inventory[itemName] = (parseInt(toCharacter.inventory[itemName]) + quantity).toString();
                             } else {
                                 // If doesn't has item, then add to the item in the inventory
-                                toCharacter.inventory[itemName] = quantity;
+                                toCharacter.inventory[itemName] = quantity.toString();
                             }
 
                             // Update the inventories
