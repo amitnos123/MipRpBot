@@ -120,8 +120,8 @@ The key is the character's name. The value holds a JSON which hold:
             "status2": "how much"
         },
         "inventory": {
-            "1": "item1",
-            "2": "item2"
+            "itemName1": "quantity",
+            "itemName2": "quantity"
         }
     }
 }
@@ -141,9 +141,9 @@ The key is the character's name. The value holds a JSON which hold:
             "sleepy": "how much sleepy"
         },
         "inventory": {
-            "1": "sword",
-            "2": "shield",
-            "3": "robot cat",
+            "sword": "1",
+            "shield": "1",
+            "robot cat": "1"
         }
     }
 }
