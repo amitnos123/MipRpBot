@@ -7,7 +7,7 @@ module.exports = {
     description: 'Transfer items from one character to another.',
     help: '__Input__' +
         '\n' +
-        '[fromCharName] [toCharName] [itemName1] [quantity] ...[itemNameN] [quantity]' +
+        '[fromCharName] [toCharName] [itemName1] [quantity] ... [itemNameN] [quantity]' +
         '\n\n' +
         '__Support Options__' +
         '\n' +
