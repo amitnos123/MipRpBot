@@ -108,3 +108,43 @@ That's include authorization settings. Can construct authorization_settings obje
 ### <u>actions_manager</u>
 #### Directory - \node_modules\statuses_manager
 #### Description
+
+
+***
+
+Template For Command's Help 
+---------------------------
+
+<pre>
+'__Input__' +
+'\n' +
+input +
+'\n\n' +
+'__Support Options__' +
+'\n' +
+options the command support +
+'\n\n' +
+'__Arguments__' +
+description on the arguments
+</pre>
+
+#### for example:
+<pre>
+'__Input__' +
+'\n' +
+'[fromCharName] [toCharName] [itemName1] [quantity] ... [itemNameN] [quantity]' +
+'\n\n' +
+'__Support Options__' +
+'\n' +
+`\`${constants.COMMAND_OPTION_ALL}\`: ${constants.COMMAND_OPTION_ALL_DESCRIPTION}` +
+'\n\n' +
+'__Arguments__' +
+'\n' +
+'`[fromCharName]` - The character\'s name which will give the item.' +
+'\n' +
+'`[toCharName]` - The character\'s name which will get the item.' +
+'\n' +
+'`[itemName1]` - The item\'s name which will be transfered.' +
+'\n' +
+'`[quantity]` - How much to transfer from the item which came before it.',
+</pre>
