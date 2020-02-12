@@ -33,7 +33,7 @@ module.exports = {
         } else {
             const fromCharacterName = args.shift(); // Take fromCharName from the args and remove it 
             const toCharacterName = args.shift(); // Take toCharName from the args and remove it
-            // After the shift twich, args only holds items' name and quantity
+            // After the shift twice, args only holds items' name and quantity
 
             const charactersManager = require('characters_manager');
             const charMan = new charactersManager();
