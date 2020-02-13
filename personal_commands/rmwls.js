@@ -2,6 +2,13 @@ const path = require('path');
 module.exports = {
     name: path.basename(__filename).split('.').slice(0, -1).join('.'),
     description: 'Remove authorization setting.',
+    help: '__Input__' +
+        '\n' +
+        '[settingName]' +
+        '\n\n' +
+        '__Argument__' +
+        '\n' +
+        '`[settingName]` - The name of the setting which will be removed.',
     args: true,
     execute(client, message, args) {
         if (args.length === 0) {
