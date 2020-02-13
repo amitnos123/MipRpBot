@@ -10,16 +10,11 @@ module.exports = {
 
             constants = require('consts');
 
-            console.log(args);
-
             // Get all command's options which were sent
             let commandOptions = [];
             while (args[0].startsWith(constants.COMMAND_OPTION_PREFIX)) {
                 commandOptions.push(args.shift());
-                console.log(args);
             }
-
-            console.log(args);
 
             // Arguments
             const setting = args[0];
