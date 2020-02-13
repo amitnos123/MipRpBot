@@ -5,6 +5,17 @@ const lw = new log_writer(constants.LOG_DIRECTORY_PATH);
 module.exports = {
     name: path.basename(__filename).split('.').slice(0, -1).join('.'),
     description: 'Grand items for a character.',
+    help: '__Input__' +
+        '\n' +
+        '[charName] [itemName1] [quantity] ... [itemNameN] [quantity]' +
+        '\n\n' +
+        '__Arguments__' +
+        '\n' +
+        '`[charName]` - The character\'s name which will give the item.' +
+        '\n' +
+        '`[itemName1]` - The item\'s name which will be transfered.' +
+        '\n' +
+        '`[quantity]` - How much to transfer from the item which came before it.',
     args: true,
     execute(client, message, args) {
         if (args.length === 0) {

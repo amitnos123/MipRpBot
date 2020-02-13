@@ -2,6 +2,13 @@ const path = require('path');
 module.exports = {
     name: path.basename(__filename).split('.').slice(0, -1).join('.'),
     description: 'Give information on how to use the command and which options does it support.',
+    help: '__Input__' +
+        '\n' +
+        '[commandName]' +
+        '\n\n' +
+        '__Argument__' +
+        '\n' +
+        '`[commandName]` - The command which return ohe information on.',
     args: true,
     execute(client, message, args) {
         if (args.length === 0) {

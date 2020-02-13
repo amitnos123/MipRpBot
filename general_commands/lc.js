@@ -3,6 +3,7 @@ const constants = require('consts');
 const discord = require('discord.js');
 module.exports = {
     name: path.basename(__filename).split('.').slice(0, -1).join('.'),
+    help: 'Doesn\'t get a input',
     description: 'Returns list the bot\'s commands.',
     args: true,
     execute(client, message, args) {

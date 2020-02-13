@@ -2,6 +2,15 @@ const path = require('path');
 module.exports = {
     name: path.basename(__filename).split('.').slice(0, -1).join('.'),
     description: 'Create\\Update an item.',
+    help: '__Input__' +
+        '\n' +
+        '[itemName] [itemDescription]' +
+        '\n\n' +
+        '__Argument__' +
+        '\n' +
+        '`[itemName]` - The name of the item you to create\\Update.' +
+        '\n' +
+        '`[itemDescription]` - The description of the item.',
     args: true,
     execute(client, message, args) {
         if (args.length === 0) {
@@ -22,7 +31,7 @@ module.exports = {
 
             const constants = require('consts');
 
-            if (itemName === constants.COMMAND_OPTION_DONT_CHANGE) {
+            if (itemName === constants.COMMAND_OPTION_DONT_CHANGE) { //TODO: Remove COMMAND_OPTION_DONT_CHANGE from command
                 message.channel.send('Can\'t use command option \'don\'t change\' on itemName.');
             } else {
                 const itemManager = require('items_manager');

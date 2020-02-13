@@ -5,6 +5,21 @@ const lw = new log_writer(constants.LOG_DIRECTORY_PATH);
 module.exports = {
     name: path.basename(__filename).split('.').slice(0, -1).join('.'),
     description: 'Destory items which character has.',
+    help: '__Input__' +
+        '\n' +
+        '[CharName] [itemName1] [quantity] ... [itemNameN] [quantity]' +
+        '\n\n' +
+        // '__Support Options__' +
+        // '\n' +
+        // `\`${constants.COMMAND_OPTION_ALL}\`: ${constants.COMMAND_OPTION_ALL_DESCRIPTION}` +
+        '\n\n' +
+        '__Arguments__' +
+        '\n' +
+        '`[CharName]` - The character\'s name which will have the items destoryed from it\'s inventory.' +
+        '\n' +
+        '`[itemName1]` - The item\'s name which will be transfered.' +
+        '\n' +
+        '`[quantity]` - How much to transfer from the item which came before it.',
     args: true,
     execute(client, message, args) {
         if (args.length === 0) {

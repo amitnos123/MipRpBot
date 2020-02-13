@@ -2,6 +2,15 @@ const path = require('path');
 module.exports = {
     name: path.basename(__filename).split('.').slice(0, -1).join('.'),
     description: 'Get the authorization for all the commands or for a specific commands.',
+    help: '__Input__' +
+        '\n' +
+        '[commandName]' +
+        '\n\n' +
+        '__Argument__' +
+        '\n' +
+        '`[commandName]` - The name of the command which it\'s authorization will be retuned.' +
+        '\n' +
+        ' ** If not given**, it will return for all the commands',
     args: true,
     execute(client, message, args) {
         const commandsIdManager = require('commands_id_manager');

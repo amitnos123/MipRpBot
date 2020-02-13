@@ -2,6 +2,13 @@ const path = require('path');
 module.exports = {
   name: path.basename(__filename).split('.').slice(0, -1).join('.'),
   description: 'Create\\Update a character.',
+  help: '__Input__' +
+    '\n' +
+    '[CharName]' +
+    '\n\n' +
+    '__Argument__' +
+    '\n' +
+    '`[CharName]` - The character\'s name which will be created.',
   args: true,
   execute(client, message, args) {
     if (args.length === 0) {
