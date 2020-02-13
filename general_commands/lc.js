@@ -11,8 +11,9 @@ module.exports = {
             .setColor('#ff0000') // RED
             .setTitle(':tools:  Commands\' Options');
 
-
-        commandOptionsMessage = `\`${constants.COMMAND_OPTION_ADD}\`: ${constants.COMMAND_OPTION_ADD_DESCRIPTION}.`;
+        commandOptionsMessage = 'To use a command option, you write it before the arguments you give the command.';
+        commandOptionsMessage += '\n\n';
+        commandOptionsMessage += `\`${constants.COMMAND_OPTION_ADD}\`: ${constants.COMMAND_OPTION_ADD_DESCRIPTION}.`;
         commandOptionsMessage += '\n';
         commandOptionsMessage += `\`${constants.COMMAND_OPTION_DONT_CHANGE}\`: ${constants.COMMAND_OPTION_DONT_CHANGE_DESCRIPTION}`;
         commandOptionsMessage += '\n';
