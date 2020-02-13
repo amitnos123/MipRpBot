@@ -1,14 +1,26 @@
 const path = require('path');
+const constants = require('consts');
 module.exports = {
     name: path.basename(__filename).split('.').slice(0, -1).join('.'),
-    description: 'Create\\Update an authorization setting.',
+    description: 'Create\\update an authorization setting.',
+    help: '__Input__' +
+        '\n' +
+        '[settingName] [username1] ... [usernameN]' +
+        '\n\n' +
+        '__Support Options__' +
+        '\n' +
+        `\`${constants.COMMAND_OPTION_ADD}\`: ${constants.COMMAND_OPTION_ADD_DESCRIPTION}` +
+        '\n\n' +
+        '__Arguments__' +
+        '\n' +
+        '`[settingName]` - The name of the settings you wish to create\\update.' +
+        '\n' +
+        '`[username1]` - A username of a user you wish to add to the settings.',
     args: true,
     execute(client, message, args) {
         if (args.length === 0) {
             message.channel.send('No arguments were sent.');
         } else {
-
-            constants = require('consts');
 
             // Get all command's options which were sent
             let commandOptions = [];

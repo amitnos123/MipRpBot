@@ -1,7 +1,27 @@
 const path = require('path');
+const constants = require('consts');
 module.exports = {
     name: path.basename(__filename).split('.').slice(0, -1).join('.'),
-    description: 'Set the whitelist for a command.',
+    description: 'Create\\update the whitelist for a command.',
+    help: '__Input__' +
+        '\n' +
+        '[commandName] [authType] [role1\\setting1] ... [roleN\\settingN]' +
+        '\n\n' +
+        '__Support Options__' +
+        '\n' +
+        `\`${constants.COMMAND_OPTION_DONT_CHANGE}\`: ${constants.COMMAND_OPTION_DONT_CHANGE_DESCRIPTION}` +
+        '\n\n' +
+        '__Arguments__' +
+        '\n' +
+        '`[commandName]` - The command\'s name which will have it whitelist create\\update.' +
+        '\n' +
+        '`[authType]` - Base on what the whitelist will work on.' +
+        '\n' +
+        `For roles in the server '${constants.AUTHORIZATION_TYPE_ROLE}'.` +
+        '\n' +
+        `For settings in the server '${constants.AUTHORIZATION_TYPE_SETTINGS}'.` +
+        '\n' +
+        '`[role1\\setting1]` - The role\\setting to add to thr whitelist.',
     args: true,
     execute(client, message, args) {
         if (args.length === 0) {
@@ -11,9 +31,8 @@ module.exports = {
             const commandName = args[0];
             let authType = args[1];
 
-            const constants = require('consts');
             if (authType === constants.COMMAND_OPTION_DONT_CHANGE) {
-                authType = undefined;
+                authType = undefined; // If authComManager.auth_update_command get 'undefined' then doesn't update this value
             }
 
             const commandsIdManager = require('commands_id_manager');
