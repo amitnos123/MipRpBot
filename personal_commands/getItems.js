@@ -2,6 +2,17 @@ const path = require('path');
 module.exports = {
     name: path.basename(__filename).split('.').slice(0, -1).join('.'),
     description: 'Retrive data of a given item, if no stat is given will return every item with it\'s data.',
+    help: '__Input__' +
+        '\n' +
+        '[itemName]' +
+        '\n\n' +
+        '__Argument__' +
+        '\n' +
+        '`[itemName]` - The name of the item which it\'s data will be retuned.' +
+        '\n' +
+        'Can give multiple itemNames' +
+        '\n' +
+        '**If not given**, it will return for all the items',
     args: true,
     execute(client, message, args) {
         const itemManager = require('items_manager');
