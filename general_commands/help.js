@@ -8,7 +8,7 @@ module.exports = {
         '\n\n' +
         '__Argument__' +
         '\n' +
-        '`[commandName]` - The command which return ohe information on.',
+        '`[commandName]` - The command which return the information on.',
     args: true,
     execute(client, message, args) {
         if (args.length === 0) {

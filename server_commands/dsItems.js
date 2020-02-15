@@ -12,7 +12,7 @@ module.exports = {
         // '__Support Options__' +
         // '\n' +
         // `\`${constants.COMMAND_OPTION_ALL}\`: ${constants.COMMAND_OPTION_ALL_DESCRIPTION}` +
-        '\n\n' +
+        // '\n\n' +
         '__Arguments__' +
         '\n' +
         '`[CharName]` - The character\'s name which will have the items destoryed from it\'s inventory.' +
