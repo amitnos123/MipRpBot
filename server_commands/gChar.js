@@ -23,10 +23,14 @@ module.exports = {
                 const character = charMan.get(charName);
 
                 const belongUser = client.users.filter(user => user.username === character.belong).first(1)[0];
-                const belongNickname = message.guild.member(belongUser).nickname;
+                let belongTo = message.guild.member(belongUser).nickname; // Return nickname. If doesn't have a nickname, will return null
+
+                if (belongTo === null) {
+                    belongTo = character.belong;
+                }
 
                 let messageSend = '```md\n';
-                messageSend += `Belong to ${belongNickname}\n\n`;
+                messageSend += `Belong to ${belongTo}\n\n`;
                 messageSend += 'Inventory\n';
                 messageSend += '=========\n';
                 for (const item in character.inventory) {
