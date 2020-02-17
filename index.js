@@ -55,6 +55,7 @@ for (const file of generalCommandFiles) {
 }
 
 const { prefix, token } = require('./config.json');
+client.commandPrefix = prefix;
 
 lw.log_message('start', 'Connecting to server');
 client.login(token);
@@ -73,8 +74,23 @@ client.on('message', message => {
   try {
     lw.log_message('info', 'On message Start');
 
-    const args = message.content.slice(prefix.length).split(' ');
+    let args = message.content.slice(prefix.length).split(' ');
     const command = args.shift();
+
+    let startLongArgs = args.findIndex((elementValue) => elementValue[0] === constants.START_CHAR_LONG_ARGUMENT);
+    while (startLongArgs !== -1) {
+      const endLongArgs = args.findIndex((elementValue) => elementValue[elementValue.length - 1] === constants.END_CHAR_LONG_ARGUMENT);
+      if (endLongArgs === -1) { // If didn't find the end
+        break;
+      }
+      let connectedArg = args.slice(startLongArgs, endLongArgs + 1).join(' ');
+      connectedArg = connectedArg.substring(1, connectedArg.length - 1); // Remove the '[' and the ']'
+
+      args = args.slice(0, startLongArgs).concat([connectedArg], args.slice(endLongArgs + 1)); // Replace in args the old arguments with the new argument
+
+      startLongArgs = args.findIndex((elementValue) => elementValue[0] === constants.START_CHAR_LONG_ARGUMENT);
+    }
+
     lw.log_message('debug', `${command} was called, with arguments: ${JSON.stringify(args)} by '${message.author.username}'`);
 
     const authorizationCommandManager = require('authorization_command_manager');
