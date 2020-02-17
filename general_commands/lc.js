@@ -7,9 +7,37 @@ module.exports = {
     description: 'Returns list the bot\'s commands.',
     args: true,
     execute(client, message, args) {
-        const embedCommandOptionsMessage = new discord.RichEmbed()
+        const embedCommandsExplanation = new discord.RichEmbed()
             .setColor('#ff0000') // RED
-            .setTitle(':tools:  Commands\' Options');
+            .setTitle(':information_source:  Commands\' Explanation');
+
+        commandsExplanationMessage = `The bot\'ts write send a message in the channel with \`${client.commandPrefix}\` in the start and right after that, without space between, write the command's name`;
+        commandsExplanationMessage += '\n\n';
+        commandsExplanationMessage += 'To send arguments to the fuction, you write them down after the command\'s name. Need to be a space between the command\'s name and each argument.';
+        commandsExplanationMessage += '\n\n';
+        commandsExplanationMessage += `If you would like to send an argument with space, then in the start of the argument write \`${constants.START_CHAR_LONG_ARGUMENT}\` and in the end write \`${constants.END_CHAR_LONG_ARGUMENT}\`.`;
+        commandsExplanationMessage += '\n';
+        commandsExplanationMessage += `For example: \`${client.commandPrefix}commandName ${constants.START_CHAR_LONG_ARGUMENT}this is a single argument${constants.END_CHAR_LONG_ARGUMENT}\``;
+        commandsExplanationMessage += '\n\n';
+        commandsExplanationMessage += `To use a command\'s options you send it at the first arguments.`;
+        commandsExplanationMessage += '\n';
+        commandsExplanationMessage += `For example: \`${client.commandPrefix}commandName ${constants.COMMAND_OPTION_PREFIX}commandOption argument1 argument2\``;
+        commandsExplanationMessage += '\n\n';
+        commandsExplanationMessage += 'To see the arguments for a command and which options it support, use the command `help`. The command `help` require a single argument, a command\'s name';
+        commandsExplanationMessage += '\n';
+        commandsExplanationMessage += 'Try it by typing `+help help`';
+        commandsExplanationMessage += '\n\n';
+        commandsExplanationMessage += ':globe_with_meridians: `General Commands` which are only called from `DM the bot` and `inside the server`';
+        commandsExplanationMessage += '\n\n';
+        commandsExplanationMessage += ':robot: `Personal Commands` are commands which are only called from `DM the bot`';
+        commandsExplanationMessage += '\n\n';
+        commandsExplanationMessage += ':desktop: `Server Commands` are commands which are only called from `inside the server`';
+        embedCommandsExplanation.setDescription(commandsExplanationMessage);
+        message.channel.send(embedCommandsExplanation);
+
+        const embedCommandOptionsMessage = new discord.RichEmbed()
+            .setColor('#ff9900') // ORANGE
+            .setTitle(':tools:  Commands\'s Options');
 
         commandOptionsMessage = 'To use a command option, you write it before the arguments you give the command.';
         commandOptionsMessage += '\n\n';
